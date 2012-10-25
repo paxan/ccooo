@@ -56,7 +56,7 @@
   "Counts site URLs from the metadata corpus grouped by TLD of each URL."
   [metadata-tap trap-tap]
   (<- [?tld ?n]
-      (metadata-tap :> ?url ?_)
+      (metadata-tap :> ?url _)
       (parse-tld ?url :> ?tld)
       (valid-tld ?tld)
       (c/count :> ?n)

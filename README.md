@@ -201,7 +201,7 @@ sequence of tuples `[?url ?n]` (e.g. `[com 3]`, `[uk 77]`, `[net 2]`).
 Then it specifies that it only cares about `?url` values coming out
 from the source tap `metadata-tap.` (remember: each metadata tuple
 consists of two values: crawled URL and metadata JSON; the second
-value is not important, so we indicate that with `?_` placeholder).
+value is not important, so we indicate that with `_` placeholder).
 
 Each `?url` value is parsed into `?tld` value using `parse-tld`
 function we discussed earlier.
@@ -222,7 +222,7 @@ cause exceptions and sends them to `trap-tap` sink.
   "Counts site URLs from the metadata corpus grouped by TLD of each URL."
   [metadata-tap trap-tap]
   (<- [?tld ?n]
-      (metadata-tap :> ?url ?_)
+      (metadata-tap :> ?url _)
       (parse-tld ?url :> ?tld)
       (valid-tld ?tld)
       (c/count :> ?n)
