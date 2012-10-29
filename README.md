@@ -36,7 +36,7 @@ I've downloaded the job output files (`part-00000` ... `part-00261`)
 and sorted them by TLD counts:
 
 ```sh
-cat part* | sort -k2gr > results.txt
+cat part* | sort -k2nr > results.txt
 ```
 
 Here are top 10 results:
