@@ -9,6 +9,7 @@
   :profiles {:dev
              {:dependencies [[org.apache.hadoop/hadoop-core "1.0.3"]
                              [midje "1.4.0"]
-                             [midje-cascalog "0.4.0" :exclusions [org.clojure/clojure]]]}}
+                             [midje-cascalog "0.4.0" :exclusions [org.clojure/clojure]]]
+              :plugins [[lein-midje "2.0.0"]]}}
   :aot [ccooo.commoncrawl]
   :jvm-opts ["-Xmx1024m" "-server"])
