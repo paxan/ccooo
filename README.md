@@ -24,11 +24,10 @@ It's not a very exciting query. To be blunt, it's a pretty boring one.
 But that's the point: this is a new ground for me, so I start simple,
 and capture what I've learned.
 
-This gist is a fully-fledged Git repo with all the code necessary to
-run this query, so if you want to play with the code yourself, go
-ahead clone this thing. You'll also need to install [Leiningen.][9]
+This project is a standalone [Leiningen][9] package, so clone this
+repo and hack away.
 
-[OS X Homebrew][10] users, here's a shortcut for you: `brew install --devel leiningen`
+[OS X Homebrew][10] users, here's a shortcut for you: `brew install leiningen`
 
 ## Results
 
@@ -54,7 +53,7 @@ nl      63865755
 fr      57607765
 ```
 
-All results <a href="#file_results.txt">are here.</a>
+All results [are here.](results.txt)
 
 ### Hadoop Cluster Details
 
@@ -170,8 +169,8 @@ hostname (assuming it's a domain name).
 `valid-tld` set will be used by the query to check whether a string is
 in fact a TLD.
 
-Look at <a href="#file_ccooo/test/ccooo/test_ccooo.clj">the test code</a>
-to see `parse-tld` in action.
+Look at [the test code](test/ccooo/test_ccooo.clj) to see `parse-tld`
+in action.
 
 ```clojure
 ;; A set of valid TLDs obtained from:
