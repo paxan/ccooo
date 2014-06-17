@@ -205,7 +205,7 @@ value is not important, so we indicate that with `_` placeholder).
 Each `?url` value is parsed into `?tld` value using `parse-tld`
 function we discussed earlier.
 
-Predicate `(valid-tld ?tld)` checks if `?tld` is valid. If result is
+Predicate `(valid-tld :< ?tld)` checks if `?tld` is valid. If result is
 `nil`, the `?url` in question will not count.
 
 Aggregator `(c/count :> ?n)` counts crawled `?url-s` grouped by
@@ -223,7 +223,7 @@ cause exceptions and sends them to `trap-tap` sink.
   (<- [?tld ?n]
       (metadata-tap :> ?url _)
       (parse-tld ?url :> ?tld)
-      (valid-tld ?tld)
+      (valid-tld :< ?tld)
       (c/count :> ?n)
       (:trap trap-tap)))
 ```

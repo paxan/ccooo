@@ -1,10 +1,10 @@
 (ns ccooo.commoncrawl
-  (:require [clojure.string :as s]
-            [cascalog.ops :as c])
-  (:use cascalog.api
-        [cascalog.more-taps :only (hfs-wrtseqfile)])
-  (:import [org.apache.hadoop.io Text]
-           [org.apache.commons.httpclient URI]))
+  (:require [cascalog.api :refer :all]
+            [cascalog.logic.ops :as c]
+            [cascalog.more-taps :refer [hfs-wrtseqfile]]
+            [clojure.string :as s])
+  (:import (org.apache.commons.httpclient URI)
+           (org.apache.hadoop.io Text)))
 
 ;; Discussion about valid segments:
 ;; https://groups.google.com/forum/#!topic/common-crawl/QYTmnttZZyo/discussion
@@ -58,7 +58,7 @@
   (<- [?tld ?n]
       (metadata-tap :> ?url _)
       (parse-tld ?url :> ?tld)
-      (valid-tld ?tld)
+      (valid-tld :< ?tld)
       (c/count :> ?n)
       (:trap trap-tap)))
 
