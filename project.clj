@@ -2,6 +2,8 @@
   :description "Common Crawl One Oh One (CCOOO)"
   :jar-name "ccooo.jar"
   :uberjar-name "ccooo-standalone.jar"
+  :main nil ; Ensures that MANIFEST.MF *does not* declare Main-Class. This is important.
+            ; See https://goo.gl/erS6Ya for details.
   :dependencies [[cascalog "2.1.0"]
                  [org.clojure/clojure "1.5.1"]
                  [commons-httpclient "3.0.1"]]
